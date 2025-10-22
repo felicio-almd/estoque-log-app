@@ -12,6 +12,7 @@
     "lint:fix": "eslint --fix"
   },
   "dependencies": {
+    "@clerk/localizations": "^3.26.2",
     "@clerk/nuxt": "^1.10.0",
     "@nuxt/ui": "4.0.1",
     "nuxt": "^4.1.3",
