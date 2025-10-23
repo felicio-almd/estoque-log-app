@@ -1,4 +1,9 @@
 <script setup lang="ts">
+const { userId } = useAuth()
+
+if (userId.value) {
+  navigateTo('/')
+}
 </script>
 
 <template>
