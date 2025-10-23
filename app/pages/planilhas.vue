@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+definePageMeta({
+  middleware: ['auth'],
+  layout: 'dashboard',
+})
+
 interface Item {
   nome: string
   valor: number
@@ -10,11 +15,6 @@ interface Item {
 interface Moto {
   modelo: string
 }
-
-definePageMeta({
-  middleware: ['auth'],
-  layout: 'dashboard',
-})
 
 const nomeCliente = ref<string>('')
 const motos = ref<Moto[]>([{ modelo: '' }])

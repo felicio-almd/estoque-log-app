@@ -8,7 +8,7 @@ definePageMeta({
 <template>
   <div class="flex flex-col gap-10">
     <h1>tela index - Dashboard</h1>
-    <div class="flex justify-around">
+    <div class="flex justify-around max-md:flex-col w-full max-md:gap-8">
       <CardHome />
       <CardHome />
       <CardHome />

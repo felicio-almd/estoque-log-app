@@ -1,4 +1,3 @@
-<!-- components/Sidebar.vue -->
 <script setup lang="ts">
 import { ref } from 'vue'
 
@@ -22,7 +21,7 @@ const isCollapsed = ref(false)
 
 <template>
   <aside
-    class="fixed left-0 top-16 h-[calc(100vh-4rem)] bg-gray-600 border-r border-gray-900 transition-all duration-300" :class="[
+    class="max-md:hidden fixed left-0 top-16 md:h-[calc(100vh-4rem)] bg-gray-600 border-r border-gray-900 transition-all duration-300" :class="[
       isCollapsed ? 'w-20' : 'w-64',
     ]"
   >
