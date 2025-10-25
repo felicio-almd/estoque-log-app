@@ -26,8 +26,8 @@ const menuItems = [
         :to="item.to"
         class="flex items-center gap-3 px-4 py-3 rounded-lg border transition-colors m-0" :class="[
           route.path === item.to
-            ? 'bg-blue-50 text-amber-500'
-            : 'text-amber-200 hover:bg-gray-100',
+            ? 'bg-blue-50 text-primary'
+            : 'text-blue-600 hover:bg-gray-100',
         ]"
       >
         <Icon :name="item.icon" class="w-5 h-5 flex-shrink-0" />

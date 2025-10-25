@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 
 definePageMeta({
-  middleware: ['auth'],
   layout: 'dashboard',
 })
 
@@ -56,17 +55,19 @@ function formatarValor(valor: number) {
   }).format(valor)
 }
 
+const arquivosExportados = ref(0)
+
 function exportar() {
+  localStorage.setItem('arquivosExportados', arquivosExportados.value.toString())
 }
 </script>
 
 <template>
   <div class="max-w-3xl mx-auto text-black">
     <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-      <!-- Header -->
       <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200">
         <button
-          class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          class="p-2 hover:bg-gray-100 rounded-lg transition-colors flex items-center"
           @click="$router.back()"
         >
           <Icon name="i-heroicons-arrow-left" class="w-5 h-5" />
@@ -76,7 +77,6 @@ function exportar() {
         </h1>
       </div>
 
-      <!-- Nome do Cliente -->
       <div class="mb-6">
         <label class="block text-sm font-medium text-gray-700 mb-2">
           Nome do Cliente*
@@ -89,7 +89,6 @@ function exportar() {
         >
       </div>
 
-      <!-- Motos -->
       <div class="mb-6">
         <label class="block text-sm font-medium text-gray-700 mb-2">
           Motos
@@ -124,7 +123,6 @@ function exportar() {
         </button>
       </div>
 
-      <!-- Itens -->
       <div class="mb-8">
         <h3 class="text-base font-semibold text-gray-900 mb-4">
           Itens
@@ -135,7 +133,6 @@ function exportar() {
             :key="index"
             class="border border-gray-200 rounded-lg overflow-hidden"
           >
-            <!-- Header do Item -->
             <div
               class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 transition-colors"
               @click="toggleItem(index)"
@@ -154,7 +151,6 @@ function exportar() {
               </div>
             </div>
 
-            <!-- Conteúdo Expandido -->
             <div v-if="item.expanded" class="p-4 pt-0 border-t border-gray-100">
               <div class="grid grid-cols-2 gap-4">
                 <div>
@@ -198,7 +194,6 @@ function exportar() {
         </button>
       </div>
 
-      <!-- Botão Exportar -->
       <div class="flex justify-center pt-6 border-t border-gray-200">
         <button
           class="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-sm"

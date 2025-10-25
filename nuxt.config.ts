@@ -1,8 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { ptBR } from '@clerk/localizations'
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui', '@clerk/nuxt'],
+  modules: ['@nuxt/ui'],
   css: ['~/assets/css/main.css'],
   ui: {
     //
@@ -11,8 +10,5 @@ export default defineNuxtConfig({
     preference: 'system',
     // preference: 'system',
     fallback: 'dark',
-  },
-  clerk: {
-    localization: ptBR,
   },
 })

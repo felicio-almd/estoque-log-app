@@ -21,11 +21,10 @@ const isCollapsed = ref(false)
 
 <template>
   <aside
-    class="max-md:hidden fixed left-0 top-16 md:h-[calc(100vh-4rem)] bg-gray-600 border-r border-gray-900 transition-all duration-300" :class="[
+    class="max-md:hidden fixed left-0 top-16 md:h-[calc(100vh-4rem)] bg-white shadow transition-all duration-300" :class="[
       isCollapsed ? 'w-20' : 'w-64',
     ]"
   >
-    <!-- Toggle Button -->
     <button
       class="absolute -right-3 top-6 bg-white border border-gray-200 rounded-full p-1 hover:bg-gray-50"
       @click="isCollapsed = !isCollapsed"
@@ -41,7 +40,7 @@ const isCollapsed = ref(false)
         :to="item.to"
         class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors" :class="[
           route.path === item.to
-            ? 'bg-blue-50 text-blue-600'
+            ? 'bg-blue-50 text-primary'
             : 'text-gray-700 hover:bg-gray-100',
           isCollapsed && 'justify-center',
         ]"
