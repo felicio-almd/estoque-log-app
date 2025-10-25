@@ -21,7 +21,7 @@ onMounted(() => {
 
     <div class="flex justify-around max-md:flex-col w-full max-md:gap-8">
       <div
-        class="h-64 w-full md:w-[30%] rounded-2xl flex flex-col items-center justify-center border border-gray-500 bg-gradient-to-br from-cyan-900 to-cyan-700 text-white shadow-md"
+        class="h-64 px-4 w-full md:w-[30%] rounded-2xl flex flex-col items-center justify-center border border-gray-500 bg-gradient-to-br from-cyan-900 to-cyan-700 text-white shadow-md"
       >
         <h2 class="text-2xl font-semibold">
           Bem-vindo 👋
