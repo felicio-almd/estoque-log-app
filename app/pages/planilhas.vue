@@ -370,8 +370,21 @@ function exportarTudo() {
               </div>
             </div>
 
-            <div v-if="item.expanded" class="p-4 pt-0 border-t border-gray-100">
+            <div v-if="item.expanded" class="p-4 pt-2 border-t border-gray-100">
               <div class="grid grid-cols-3 gap-4">
+                <div class="col-span-3">
+                  <div class="col-span-2">
+                    <label class="block text-xs font-medium text-gray-600 mb-1">
+                      Nome do Produto
+                    </label>
+                    <input
+                      v-model="item.produto"
+                      type="text"
+                      placeholder="Ex: ARVORE COMANDO"
+                      class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                    >
+                  </div>
+                </div>
                 <div>
                   <label class="block text-xs font-medium text-gray-600 mb-1">
                     Quantidade
@@ -385,17 +398,6 @@ function exportarTudo() {
                 </div>
                 <div class="col-span-2">
                   <label class="block text-xs font-medium text-gray-600 mb-1">
-                    Nome do Produto
-                  </label>
-                  <input
-                    v-model="item.produto"
-                    type="text"
-                    placeholder="Ex: ARVORE COMANDO"
-                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  >
-                </div>
-                <div class="col-span-3">
-                  <label class="block text-xs font-medium text-gray-600 mb-1">
                     Valor Unitário (R$)
                   </label>
                   <input
@@ -406,53 +408,53 @@ function exportarTudo() {
                     class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                   >
                 </div>
+                <button
+                  class="mt-3 text-sm text-red-600 hover:text-red-700 font-medium"
+                  @click.stop="removerItem(index)"
+                >
+                  Remover Item
+                </button>
               </div>
-              <button
-                class="mt-3 text-sm text-red-600 hover:text-red-700 font-medium"
-                @click.stop="removerItem(index)"
-              >
-                Remover Item
-              </button>
+            </div>
+          </div>
+
+          <button
+            class="mt-3 flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium text-sm"
+            @click="adicionarItem"
+          >
+            <Icon name="i-heroicons-plus" class="w-4 h-4" />
+            Adicionar Item
+          </button>
+
+          <!-- Resumo -->
+          <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-gray-600">Total de Itens:</span>
+              <span class="font-semibold">{{ calcularQuantidadeTotal() }}</span>
+            </div>
+            <div class="flex justify-between text-lg font-bold border-t border-gray-300 pt-2">
+              <span>TOTAL GERAL:</span>
+              <span class="text-blue-600">{{ formatarValor(calcularTotalGeral()) }}</span>
             </div>
           </div>
         </div>
 
-        <button
-          class="mt-3 flex items-center gap-2 px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium text-sm"
-          @click="adicionarItem"
-        >
-          <Icon name="i-heroicons-plus" class="w-4 h-4" />
-          Adicionar Item
-        </button>
-
-        <!-- Resumo -->
-        <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-          <div class="flex justify-between text-sm mb-2">
-            <span class="text-gray-600">Total de Itens:</span>
-            <span class="font-semibold">{{ calcularQuantidadeTotal() }}</span>
-          </div>
-          <div class="flex justify-between text-lg font-bold border-t border-gray-300 pt-2">
-            <span>TOTAL GERAL:</span>
-            <span class="text-blue-600">{{ formatarValor(calcularTotalGeral()) }}</span>
-          </div>
+        <div class="flex gap-2 max-md:flex-col justify-center pt-6 border-t border-gray-200">
+          <button
+            class="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-sm"
+            @click="exportarTudo"
+          >
+            <Icon name="i-heroicons-arrow-down-tray" class="w-5 h-5" />
+            Exportar PDF
+          </button>
+          <button
+            class="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors shadow-sm"
+            @click="compartilharWhatsApp"
+          >
+            <Icon name="i-heroicons-chat-bubble-left-right" class="w-5 h-5" />
+            Compartilhar WhatsApp
+          </button>
         </div>
-      </div>
-
-      <div class="flex gap-2 max-md:flex-col justify-center pt-6 border-t border-gray-200">
-        <button
-          class="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-sm"
-          @click="exportarTudo"
-        >
-          <Icon name="i-heroicons-arrow-down-tray" class="w-5 h-5" />
-          Exportar PDF
-        </button>
-        <button
-          class="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors shadow-sm"
-          @click="compartilharWhatsApp"
-        >
-          <Icon name="i-heroicons-chat-bubble-left-right" class="w-5 h-5" />
-          Compartilhar WhatsApp
-        </button>
       </div>
     </div>
   </div>
